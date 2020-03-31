@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Rock, Paper, Scissors</title>    
+       <style>
+        input {
+          font-size: 2em;
+          margin: 10px 1px 0;
+        }
+       </style>
+    </head> 
+<body>
+<p></p>
+
+<script>
+
+var computerSelection;
+var playerSelection = 'rock';
+var playerWins = 0;
+var compWins = 0;
+
+//generates number between 1-3, corresponding to rock paper or scissors = computerSelection
+function computerPlay() {
+    let result = (Math.floor(Math.random()*3) +1);
+    switch(result) {
+        case 1:
+            computerSelection = 'rock';
+        break;
+        case 2:
+            computerSelection = 'paper';
+        break;
+        case 3:
+            computerSelection = 'scissors';
+        break;
+    }
+}
+
+//runs through each round, displays win or loss, updates compWins or playerWins
+function playRound() {
+    playerSelection = window.prompt('ROUND ' + n + '! Choose your fighter! (Rock, Paper, Scissors)');
+    playerSelection = playerSelection.toLowerCase();
+    computerPlay();
+    console.log("Player - " + playerSelection);
+    console.log("Computer - " + computerSelection);
+    
+    if (playerSelection == 'rock' && computerSelection == 'scissors') {
+        return console.log('You Win! Rock beats Scissors'), playerWins++;
+    } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+        return console.log('You Win! Paper beats Rock'), playerWins++;
+    } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+        return console.log('You Win! Scissors beats Paper'), playerWins++;
+    } else if (playerSelection == 'rock' && computerSelection == 'paper') {
+        return console.log('You Lose! Paper beats Rock'), compWins++;
+    } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+        return console.log('You Lose! Scissors beats Paper'), compWins++;
+    } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+        return console.log('You Lose! Rock beats Scissors'), compWins++;
+    } else if (playerSelection == computerSelection) {
+        return console.log("It's a tie!");
+    } else {
+        return console.log('Invalid selection, Please input Rock, Paper, or Scissors');
+    }
+}
+
+//runs game through 5 rounds
+function game() {
+        for (n=1; n < 6; n++)
+        playRound();
+    }
+game();
+
+//displays results
+function endGame() {
+    console.log('Results:');
+    console.log('Player - ' + playerWins);
+    console.log('Computer - ' + compWins);
+    if (playerWins > compWins) {
+        console.log('And the winner is: YOU!');
+    } else if (compWins > playerWins) {
+        console.log('And the winner is: THE MACHINE');
+    } else {
+        console.log("It's a tie!");
+    }
+    
+}
+
+endGame()
+
+</script>
+</body>
+</html>
