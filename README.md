@@ -1,0 +1,1 @@
+Rock Paper Scissors project, run in console, takes text input from user and runs 5 rounds of rock paper scissors against random computer selection.
